@@ -199,7 +199,7 @@ const movies = [
 function oldest(movies) {
   let oldestMovie = movies[0];
   movies.forEach(function (element) {
-    if (Number(element.Year) < Number(oldestMovie.Year)) {
+    if (parseInt(element.Year) < parseInt(oldestMovie.Year)) {
       oldestMovie = element;
     }
   });

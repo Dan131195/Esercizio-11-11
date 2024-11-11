@@ -23,19 +23,17 @@ function numbers() {
     number[i].push(newnumbers);
   }
 }
-console.log(number);
-
+numbers();
 /* ESERCIZIO 3 (filter)
   Scrivi una funzione per ricavare solamente i valori PARI da un array composto da soli valori numerici
 */
 
 let numbers2 = [1, 2, 3, 4, 5, 6, 7];
 
-function filter1(array) {
-  return array.filter(function (num) {
-    return num % 2 === 0;
-  });
-}
+function filter1(n) {
+  return n.filter(number => number % 2 === 0);
+  };
+
 console.log(filter1(numbers2));
 
 /* ESERCIZIO 4 (forEach)
@@ -70,7 +68,7 @@ console.log(map1(1));
 */
 
 let myArray = ["EPICODE", "is", "great"];
-function map3() {}
+function map2() {}
 
 /* ESERCIZIO 8 (forEach o for)
   Scrivi una funzione per creare un array contenente tutti i valori DISPARI da 1 a 99.
@@ -212,11 +210,10 @@ console.log(oldest(movies));
   Scrivi una funzione per ottenere il numero di film contenuti nell'array fornito.
 */
 
-function numberOfFilm(array) {}
-
 /* ESERCIZIO 11 (map)
   Scrivi una funzione per creare un array con solamente i titoli dei film contenuti nell'array fornito.
 */
+
 
 /* ESERCIZIO 12 (filter)
   Scrivi una funzione per ottenere dall'array fornito solamente i film usciti nel millennio corrente.
@@ -224,7 +221,7 @@ function numberOfFilm(array) {}
 
 function filter(array) {
   const newArray = array.filter((element) => {
-    return Number(element.Year) >= 2001;
+    return parseInt(element.Year) >= 2001;
   });
   return newArray;
 }
@@ -234,6 +231,8 @@ console.log(filter(movies));
 /* ESERCIZIO 13 (reduce)
   Scrivi una funzione per calcolare la somma di tutti gli anni in cui sono stati prodotti i film contenuti nell'array fornito.
 */
+
+
 
 /* ESERCIZIO 14 (find)
   Scrivi una funzione per ottenere dall'array fornito uno specifico film (la funzione riceve un imdbID come parametro).

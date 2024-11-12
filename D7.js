@@ -19,14 +19,16 @@ newString("Mario", "Aldo");
 */
 console.log("---- Esercizio 2 -----");
 
-number = [];
-function numbers() {
-  for (let i = 0; i < number.length; i++) {
-    let newnumbers = Math.random() * 100;
-    number[i].push(newnumbers);
+const random10 = () => {
+  const array = []
+  for (let i = 0; i < 10; i++) {
+    array.push(Math.floor(Math.random() * 101))
   }
+  return array
 }
-numbers();
+
+console.log(random10())
+
 /* ESERCIZIO 3 (filter)
   Scrivi una funzione per ricavare solamente i valori PARI da un array composto da soli valori numerici
 */
@@ -47,9 +49,15 @@ console.log("---- Esercizio 4 -----");
 
 const sumNumbers = [1, 2, 3, 4, 5];
 
-const sum = sumNumbers.forEach((element) => element);
+function sumArray() {
+  let sum = 0;
+  sumNumbers.forEach((element) => {
+    sum += element;
+  });
+  return sum;
+}
 
-console.log(sum);
+console.log(sumArray());
 
 /* ESERCIZIO 5 (reduce)
   Scrivi una funzione per sommare i numeri contenuti in un array
@@ -65,12 +73,11 @@ console.log(sum2);
 */
 console.log("---- Esercizio 6 -----");
 
-function plus(array, n) {
-  let plusUltra = array.map((element) => {
-    return element + n;
-  });
-  return plusUltra;
+const incrementaArray = (array, n) => {
+  return array.map((el) => el + n)
 }
+
+console.log(incrementaArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 10))
 
 /* ESERCIZIO 7 (map)
   Scrivi una funzione che, dato un array di stringhe, ritorni un nuovo array contenente le lunghezze delle rispettive stringhe dell'array di partenza
@@ -78,13 +85,32 @@ function plus(array, n) {
 */
 console.log("---- Esercizio 7 -----");
 
-let myArray = ["EPICODE", "is", "great"];
-function map2() {}
+function map2(stringArray) {
+  return stringArray.map((element) => element.length);
+}
+
+console.log(map2(["EPICODE", "is", "great"]));
 
 /* ESERCIZIO 8 (forEach o for)
   Scrivi una funzione per creare un array contenente tutti i valori DISPARI da 1 a 99.
 */
 console.log("---- Esercizio 8 -----");
+
+function oddNumbers() {
+  const numbersArray = [];
+  for (let i = 1; i < 100; i++){
+    numbersArray.push(i);
+  }
+  const oddArray = [];
+  numbersArray.forEach((element) => {
+    if (element % 2 === 0) {
+      oddArray.push(element);
+    }
+  })
+  return oddArray;
+}
+
+console.log(oddNumbers());
 
 /* Questo array di film verrà usato negli esercizi a seguire. Non modificarlo e scorri oltre per riprendere gli esercizi :) */
 const movies = [
@@ -275,7 +301,7 @@ console.log("---- Esercizio 12 -----");
 
 function filter(array) {
   const newArray = array.filter((element) => {
-    return parseInt(element.Year) >= 2001;
+    return parseInt(element.Year) > 2000;
   });
   return newArray;
 }
@@ -301,11 +327,32 @@ console.log(millennialFilm);
 /* ESERCIZIO 13 (reduce)
   Scrivi una funzione per calcolare la somma di tutti gli anni in cui sono stati prodotti i film contenuti nell'array fornito.
 */
+console.log("---- Esercizio 13 -----");
+
+const sumYears = () => {
+  return movies.reduce((total, movie) => total + parseInt(movie.Year), 0);
+};
+
+console.log(sumYears());
 
 /* ESERCIZIO 14 (find)
   Scrivi una funzione per ottenere dall'array fornito uno specifico film (la funzione riceve un imdbID come parametro).
 */
+console.log("---- Esercizio 14 -----");
+
+function findmovie(id) {
+  return movies.find((element) => element.imdbID === id);
+}
+
+console.log(findmovie("tt4154796"));
 
 /* ESERCIZIO 15 (findIndex)
   Scrivi una funzione per ottenere dall'array fornito l'indice del primo film uscito nell'anno fornito come parametro.
 */
+console.log("---- Esercizio 15 -----");
+
+function getMovieByYear(year) {
+  return movies.findIndex((element) => parseInt(element.Year) === year);
+}
+
+console.log(getMovieByYear(2005));
